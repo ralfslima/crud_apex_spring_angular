@@ -1,0 +1,26 @@
+<form>
+    <input type="text" name="nome" [(ngModel)]="nome" class="form-control" placeholder="Nome">
+    <input type="text" name="sobrenome" [(ngModel)]="sobrenome" class="form-control" placeholder="Sobrenome">
+    <input type="button" value="Cadastrar" (click)="cadastrar()" *ngIf="!colaboradorSelecionado" class="btn btn-primary">
+    <input type="button" value="Alterar"   (click)="alterar()" *ngIf="colaboradorSelecionado" class="btn btn-warning">
+    <input type="button" value="Excluir"   (click)="excluir()" *ngIf="colaboradorSelecionado" class="btn btn-danger">
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Selecionar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let v of vetor; let i = index">
+            <td>{{v.nome}}</td>
+            <td>{{v.sobrenome}}</td>
+            <td><button (click)="selecionar(i)" class="btn btn-success">Selecionar</button></td>
+        </tr>
+    </tbody>
+</table>
